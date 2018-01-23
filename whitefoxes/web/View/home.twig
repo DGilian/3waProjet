@@ -1,0 +1,88 @@
+{% extends "template.twig" %}
+
+{% block title %}home{% endblock %}
+
+{% block main %}
+<section class = "homme">
+  <h2><span>collection </span> <br> homme</h2>
+  <div class="collection">
+    <section class ="mannequin">
+      <img src="{{app.request.basePath}}/img/mannequin.png" alt ="photo modele">
+    </section>
+    <section class = "taille">
+      <p>t-shirt en coton bio blanc</p>
+      <p>disponilble en 1 <span>couleur</span></p>
+      <p>75 €</p>
+      <ul>
+        <li>xs</li>
+        <li>s</li>
+        <li>m</li>
+        <li>l</li>
+        <li>xl</li>
+      </ul>
+      <input type="submit" value="commander" method ="post">
+    </section>
+    <section class= "description">
+      <img src="{{app.request.basePath}}/img/homemade.png" alt="logo handmade">
+      <h3>un t-shirt qui vous fera votre hiver</h3>
+      <p>il etait évident pour nous de vous proposer ce pilié du vestiare masculin.</p>
+      <br>
+      <p>mais hors de question de vous présenter un tee shirt basique<br>on a visé le tee-shirt ultime, celui qui vous fera passer l'été au frais</p>
+      <br>
+      <p>composé de 100 pour 100 de coton issu de l'agriculture bilogique, avec ses 210g/m2 notre tee-shirt vous accompagnera été apres été</p>
+    </section>
+  </div>
+  <div class = "certifications">
+    <img src="{{app.request.basePath}}/img/bio.png" alt="logo bio">
+    <img src="{{app.request.basePath}}/img/renardfr.png" alt="logo made in france">
+  </div>
+</section>
+<section class = "detail">
+  <article class = "text">
+    <h3>un t-shirt qui vous fera votre hiver</h3>
+    <p>il etait evident pour nous de vous proposer<br> ce pilie du vestiare masculin.</p>
+    <p>
+    mais hors de question de vous presenter un tee shirt basique
+    on a vise le tee-shirt ultime, celui qui vous fera passer l'ete au frais</p>
+    <p>
+    compose de 100 pour 100 de coton issu de l'agriculture bilogique, avec ses 210g/m2 notre tee-shirt vous accompagnera ete apres ete</p>
+  </article>
+  <img src="{{app.request.basePath}}/img/modele_2.png" alt="modele">
+</section>
+<section class = "entretien">
+  <div class ="t_shirt">
+    <img src="{{app.request.basePath}}/img/t_shirt.png" alt="t_shirt blanc">
+  </div>
+  <div class ="conseil">
+    <div class ="symbols">
+      <h3>entretien</h3>
+      <div class ="symb">
+        <div>
+          <img src="{{app.request.basePath}}/img/temperature.png" alt="logo fer à repasser">
+          <p>cycle coton 30°</p>
+        </div>
+        <div>
+          <img src="{{app.request.basePath}}/img/seche_linge.png" alt="seche linge">
+          <p>seche linge autorisé°</p>
+        </div>
+        <div>
+          <img src="{{app.request.basePath}}/img/fer_repasser.png" alt="repassage">
+          <p>repassage tempérer pour ne pas bruler les fibres</p>
+        </div>
+      </div>
+    </div>
+    <div class = "size">
+      <p>taille :</p>
+      <ul>
+        <li>xs</li>
+        <li>s</li>
+        <li>l</li>
+        <li>m</li>
+        <li>xl</li>
+      </ul>
+    </div>
+    <input type="submit" value = "ajouter au panier">
+    <img class = "visa" src="{{app.request.basePath}}/img/visa.png" alt="image moyen de paiement">
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet">
+  <link rel="stylesheet" href="{{app.request.basePath}}/css/style.css">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <link href="{{app.request.basePath}}/css/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+  <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="{{app.request.baseUrl}}/modeles">modeles</a>
+      <a href="{{app.request.baseUrl}}/panier">mon panier</a>
+      <a href="{{app.request.baseUrl}}/connection">login</a>
+    </nav>
+      <a href="{{app.request.baseUrl}}/"><img src="{{app.request.basePath}}/img/logo.png" alt="logo"></a>
+  </header>
+  <main>
+  {% block main %}{% endblock %}
+  </main>
+  <footer>
+    <section class = "livraison">
+      <div>
+        <img src="{{app.request.basePath}}/img/truck.png" alt="image truck">
+        <p>livraison gratuite a partir de 150 euros</p>
+      </div>
+      <div>
+        <img src="{{app.request.basePath}}/img/cadenas.png" alt="image cadenas">
+        <p>paiement securise</p>
+      </div>
+    </section>
+    <section class = "client">
+      <p>service client</p>
+      <p>cookies et mention legales</p>
+      <form action="" placeholder ="votre-email">
+        <label for="">newsletter:</label>
+        <input type="text" placeholder="VOTRE-EMAIL">
+        <input type="submit" value = "ok">
+      </form>
+    </section>
+    <div class="logo">
+      <a href=""><img src="{{app.request.basePath}}/img/logo_facebook.png" alt="logo facebook"></a>
+      <a href=""><img src="{{app.request.basePath}}/img/logo_insta.png" alt="logo instagram"></a>
+    </div>
+  </footer>
+  <script src ="{{app.request.basePath}}/js/main.js"></script>
+</body>
+</html>
