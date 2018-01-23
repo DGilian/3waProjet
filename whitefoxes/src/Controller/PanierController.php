@@ -2,13 +2,18 @@
 namespace Src\Controller;
 
 use Silex\Application;
-use Src\Classes\Database;
+use Src\Model\ArticlesModel;
 
 
 class PanierController {
 
   public function show(Application $app) {
 
-    return $app['twig']->render('panier.twig');
+    $post = new ArticlesModel();
+    $tshirts = $post->listTshirt();
+
+    var_dump($tshirts);
+    $array = ['showTshirts'=>$tshirts];
+    return $app['twig']->render('panier.twig',$array);
   }
 }

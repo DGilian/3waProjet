@@ -385,17 +385,27 @@ main .detail img{
 /*>>>>>>>>>>>>>page panier*/
 main .panier{
   display: flex;
-  background-color: #f7f7f7;
 }
 .macommande{
   width: 70%;
 }
 .macommande article{
   display: flex;
+  margin: 5rem;
 }
 .macommande article div{
   display: flex;
   flex-direction: column;
+}
+.macommande article .quantity{
+  flex-direction: row;
+}
+.macommande article .quantity label{
+  margin-right: 3rem;
+}
+.macommande article .quantity input{
+  width : 4rem;
+  text-align: center;
 }
 aside{
   width: 30%;
@@ -407,6 +417,10 @@ main .macommande img{
   width: 200px;
   height: 200px;
 }
+.macommande .hide{
+  display: none;
+}
+
 /*<<<<<<<<<<<<<page panier*/
 footer .logo{
   display: flex;

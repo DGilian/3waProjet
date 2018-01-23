@@ -23,19 +23,14 @@ function load(key) {
 
 let convert = load("quantity");
 
+
 function showQuantity(){
-    let result ="";
-    let temp;
-    for( let i = 0; i<convert.constructor.keys.length; i++){
 
-      console.log(Object.keys(convert));
-      temp=Object.keys(convert)[i];
-
-      result += "<li>"+convert.v[i]+"</li>"; 
-    }
-
-
-$('#test').html("<ul>"+result+"</ul>");
+  for (var key in convert) {
+    // affiche la quantité
+    $('#t'+key.slice(1)).val(convert[key]);
+    // affiche les t-shirts selectionnés
+    $('#art'+key.slice(1)).removeClass('hide');
+  }
 }
-
 showQuantity();

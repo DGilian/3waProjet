@@ -5,26 +5,20 @@
 {% block main %}
     <div class = "panier container">
       <section class ="macommande">
-        <h2>Ma commande</h2>
-        <article>
-          <img src="{{app.request.basePath}}/img/modeles/1.jpg" alt="">
+
+        {% for tshirt in showTshirts %}
+        <article id="art{{tshirt.id}}"class="hide">
+          <img src="{{app.request.basePath}}/img/modeles/{{tshirt.image}}" alt="">
           <div>
-            <p>onespace</p>
-            <label for="">Quantité</label>
-            <p id="test">hi</p>
-            <input type="text" value="">
-            <p>75€</p>
+            <p>T-shirt <span>{{tshirt.name}}</span></p>
+            <div class = "quantity">
+              <label for="">Quantité</label>
+              <input id="t{{tshirt.id}}" type="number" value="">
+            </div>
+            <p>{{tshirt.price}}€</p>
           </div>
         </article>
-        <article>
-          <img src="{{app.request.basePath}}/img/modeles/2.jpg" alt="">
-          <div>
-          
-            <label for="">Quantité</label>
-            <input type="text">
-            <p>75€</p>
-          </div>
-        </article>
+        {% endfor %}
       </section>
       <aside class = "total">
         <h2>total de ma commande</h2>
