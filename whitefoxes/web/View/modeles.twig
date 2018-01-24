@@ -19,7 +19,7 @@
                 <option value={{ i }}>{{ i }}</option>
             {% endfor %}
             </select>
-            <button id="add{{tshirt.id}}" onclick='updateBasket({{tshirt.id}})' href="#"><i class="fa fa-cart-arrow-down" aria-hidden="true" onclick="return false;"></i></button>
+            <button id="add{{tshirt.id}}" onclick='updateBasket({{tshirt.id}},{{tshirt.price}})' href="#"><i class="fa fa-cart-arrow-down" aria-hidden="true" onclick="return false;"></i></button>
           </form>
         </div>
       </li>

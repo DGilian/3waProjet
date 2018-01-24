@@ -12,7 +12,7 @@ class PanierController {
     $post = new ArticlesModel();
     $tshirts = $post->listTshirt();
 
-    var_dump($tshirts);
+    //var_dump($tshirts);
     $array = ['showTshirts'=>$tshirts];
     return $app['twig']->render('panier.twig',$array);
   }

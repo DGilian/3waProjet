@@ -11,22 +11,31 @@
           <img src="{{app.request.basePath}}/img/modeles/{{tshirt.image}}" alt="">
           <div>
             <p>T-shirt <span>{{tshirt.name}}</span></p>
-            <div class = "quantity">
+            <form class = "quantity">
               <label for="">Quantité</label>
-              <input id="t{{tshirt.id}}" type="number" value="">
-            </div>
+              <input id="t{{tshirt.id}}" type="number" value="" onclick='updateQuantity({{tshirt.id}})'>
+            </form>
             <p>{{tshirt.price}}€</p>
           </div>
         </article>
         {% endfor %}
       </section>
       <aside class = "total">
-        <h2>total de ma commande</h2>
-        <p>t-shirt 1</p>
-        <p>75€</p>
-        <p>t-shirt 2</p>
-        <p>75€</p>
-        <p>total 150€</p>
+        <h2>Total de ma commande</h2>
+        {% for tshirt in showTshirts %}
+        <article id="total{{tshirt.id}}" class="hide">
+          <p>T-shirt {{tshirt.name}}</p>
+          <p><span id="priceByQuantity{{tshirt.id}}"></span> x {{tshirt.price}} € </p>
+        </article>
+        {% endfor %}
+        <hr>
+        <article>
+          <p>Total du panier</p>
+          <p id="totalBasket"></p>
+        </article>
+        <form action="">
+          <button>je valide mon panier</button>
+        </form>
       </aside>
     </div>
 {% endblock %}

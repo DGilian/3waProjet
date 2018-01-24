@@ -387,7 +387,7 @@ main .panier{
   display: flex;
 }
 .macommande{
-  width: 70%;
+  width: 60%;
 }
 .macommande article{
   display: flex;
@@ -408,10 +408,33 @@ main .panier{
   text-align: center;
 }
 aside{
-  width: 30%;
+  width: 35%;
   color: white;
-  background: linear-gradient(165deg, black 0, black 85%,white 5%,white 100%);
-  background-color: #f7f7f7;
+  background-color: black;
+  padding: 2rem;
+  align-self: flex-start;
+  margin-top: 5rem;
+  border-radius: 1rem;
+}
+
+aside h2{
+  text-align: center;
+}
+aside article{
+  display: flex;
+  justify-content: space-between;
+}
+
+aside form{
+  text-align: center;
+  margin-top: 1rem;
+}
+aside form button{
+  text-transform: uppercase;
+  padding: 1rem;
+  background-color: white;
+  border: none;
+  border-radius: 10px;
 }
 main .macommande img{
   width: 200px;
@@ -420,7 +443,9 @@ main .macommande img{
 .macommande .hide{
   display: none;
 }
-
+.total .hide{
+  display: none;
+}
 /*<<<<<<<<<<<<<page panier*/
 footer .logo{
   display: flex;
