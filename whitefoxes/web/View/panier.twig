@@ -13,7 +13,8 @@
             <p>T-shirt <span>{{tshirt.name}}</span></p>
             <form class = "quantity">
               <label for="">Quantité</label>
-              <input id="t{{tshirt.id}}" type="number" value="" onclick='updateQuantity({{tshirt.id}})'>
+              <input id="t{{tshirt.id}}" type="number" value="" onclick="updateQuantity({{tshirt.id}})">
+              <button onclick="deleteArticle({{tshirt.id}}); return false;"><i class="fa fa-trash" aria-hidden="true"></i></button>
             </form>
             <p>{{tshirt.price}}€</p>
           </div>

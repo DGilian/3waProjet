@@ -3,15 +3,26 @@
 let basket = {};
 let price = {};
 
+
 // mise à jours du panier
 function updateBasket(i,x) {
+  //ajout dans localStorage
   basket["t"+i] = Number($("#a"+i).val());
-  //console.log(basket);
-
   price["p"+i] = Number(x);
-  //console.log(price);
+
   save("quantity", basket);
   save("price", price)
+
+  //affichage validation check sur page modele
+  $("#fa"+i).removeClass("fa fa-cart-arrow-down");
+  $("#fa"+i).addClass("fa fa-check");
+  $("#fa"+i).addClass("green");
+
+  setTimeout(()=>{
+    $("#fa"+i).removeClass("green");
+    $("#fa"+i).removeClass("fa fa-check");
+    $("#fa"+i).addClass("fa fa-cart-arrow-down");
+  }, 1000);
 }
 
 //sauvegarde des tshirts selectionnés dans localStorage
@@ -29,11 +40,13 @@ function load(key) {
 let tQuantity = load("quantity");
 let tPrice = load("price");
 
+// affichage page panier
 function showQuantity(){
 
   for (let key in tQuantity) {
-    // affiche la quantité
+
     if(tQuantity[key]>0){
+      // affiche la quantité
       $('#t'+key.slice(1)).val(tQuantity[key]);
       // affiche les t-shirts selectionnés
       $('#art'+key.slice(1)).removeClass('hide');
@@ -41,6 +54,10 @@ function showQuantity(){
       // affiche les t-shirts dans le recapitulatif de la commande
       $('#total'+key.slice(1)).removeClass('hide');
       $('#priceByQuantity'+key.slice(1)).html(tQuantity[key]);
+    }
+    else{
+      $('#art'+key.slice(1)).addClass('hide');
+      $('#total'+key.slice(1)).addClass('hide');
     }
   }
 }
@@ -52,16 +69,41 @@ function showTotalPrice(){
   for (var key in tPrice) {
     sum += tQuantity["t"+key.slice(1)]*tPrice["p"+key.slice(1)];
   }
-  $('#totalBasket').html(sum+" €");
+
+  if(sum == 0){
+    $('#totalBasket').html("Votre panier est vide");
+  }
+  else{
+    $('#totalBasket').html(sum+" €");
+  }
 }
 
-// modification de la quantité sur la pange panier
+// modification de la quantité sur la page panier
 function updateQuantity(id){
-
   tQuantity["t"+id] = Number($('#t'+id).val());
+  if(tQuantity["t"+id] == 0 && tPrice["p"+id] != 0 || tQuantity["t"+id] < 0){
+    tQuantity["t"+id] = 1;
+  }
   save("quantity", tQuantity);
-  showTotalPrice();
-  showQuantity()
+
+  refresh();
 }
-showQuantity();
-showTotalPrice();
+
+//evite de prendre en compte la modification de l'input au clavier
+$(document).click(showQuantity);
+
+// suppression article panier
+function deleteArticle(id){
+
+    $('#t'+id).val(0);
+    tPrice["p"+id] = 0;
+
+    updateQuantity(id);
+}
+
+function refresh(){
+  showQuantity();
+  showTotalPrice();
+}
+
+refresh();

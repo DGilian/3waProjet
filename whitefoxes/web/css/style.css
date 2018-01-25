@@ -66,7 +66,7 @@ header .genre{
   padding-bottom: 8rem;
 }
 main .homme{
-  background: linear-gradient(140deg, black 0, black 50%,white 50%,white 100%);
+  background: linear-gradient(136deg, black 0, black 50%,white 50%,white 100%);
 }
 main .homme h2{
   text-align: center;
@@ -364,6 +364,23 @@ main .detail img{
   justify-content: center;
   align-items: center;
 }
+.produit .commande form{
+  display: flex;
+  align-items: center;
+}
+.produit .commande select{
+  margin-right: 2rem;
+}
+.produit .commande select,
+.produit .commande button{
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid grey;
+}
+.produit .commande button i{
+  font-size: 2rem;
+  background-color: white;
+}
 .produit .commande p{
   font-size: 3rem;
   padding: 2rem;
@@ -380,12 +397,15 @@ main .detail img{
   text-transform: uppercase;
   background: linear-gradient(166.2deg, black 0, black 50%,white 50%,white 100%);
 }
-
+.produit .green{
+  color: green;
+}
 /*<<<<<<<<<<<<<main page modeles
 /*>>>>>>>>>>>>>page panier*/
 main .panier{
   display: flex;
 }
+
 .macommande{
   width: 60%;
 }
@@ -405,7 +425,16 @@ main .panier{
 }
 .macommande article .quantity input{
   width : 4rem;
+  height: 3rem;
   text-align: center;
+  border : 1px solid grey;
+}
+.macommande article .quantity button{
+  background: white;
+  border : 1px solid grey;
+  width: 3rem;
+  height: 3rem;
+  margin-left: 5rem;
 }
 aside{
   width: 35%;
