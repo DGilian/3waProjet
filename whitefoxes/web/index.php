@@ -13,9 +13,12 @@ $app->register($twig, [ 'twig.path' => 'View' ]);
 
 
 $app->get('/', 'Src\Controller\HomeController::show');
+$app->post('/', 'Src\Controller\HomeController::addMailNewsletter');
 
 $app->get('/panier', 'Src\Controller\PanierController::show');
+$app->post('/panier', 'Src\Controller\PanierController::addUsers');
 
 $app->get('/modeles', 'Src\Controller\ModelesController::show');
+$app->post('/modeles', 'Src\Controller\HomeController::addMailNewsletter');
 
 $app->run();  //lance le code

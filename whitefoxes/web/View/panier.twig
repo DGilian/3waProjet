@@ -30,13 +30,36 @@
         </article>
         {% endfor %}
         <hr>
-        <article>
-          <p>Total du panier</p>
-          <p id="totalBasket"></p>
-        </article>
-        <form action="">
-          <button>je valide mon panier</button>
-        </form>
+        <form id="sendCommand" class ="infoUser" action="" method="POST">
+          <div>
+            <label for="firstname">Prénom</label>
+            <input type="text" name ="firstname" required="required">
+          </div>
+          <div>
+            <label for="">Nom</label>
+            <input type="text" name ="lastname" required="required">
+          </div>
+          <div>
+            <label for="mail">mail</label>
+            <input type="mail" name ="mail" required="required">
+          </div>
+          <div>
+            <label for="adresse">adresse</label>
+            <input type="text" name ="adresse" required="required">
+          </div>
+          <div>
+            <label for="ville">ville</label>
+            <input type="text" name ="ville" required="required">
+          </div>
+          <hr>
+          <div class="check">
+            <article>
+              <p>Total du panier</p>
+              <p id="totalBasket"></p>
+            </article>
+            <button name="checkBasket">je valide mon panier</button>
+          </div>
+          </form>
       </aside>
     </div>
 {% endblock %}

@@ -331,8 +331,19 @@ main .detail img{
   justify-content: space-around;
   padding: 1.5rem;
 }
+.client form,
 .client p{
   size: 2rem;
+  margin: 1rem
+}
+
+.client input{
+  background-color: white;
+  border: 0.5px solid black;
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  padding: 0.2rem;
+  margin-left: 0.5rem;
 }
 /*main page modeles >>>>>>>>>>>>*/
 .produit img{
@@ -454,16 +465,18 @@ aside article{
   justify-content: space-between;
 }
 
-aside form{
-  text-align: center;
-  margin-top: 1rem;
-}
 aside form button{
   text-transform: uppercase;
   padding: 1rem;
   background-color: white;
   border: none;
   border-radius: 10px;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+aside hr{
+  width: 100%;
 }
 main .macommande img{
   width: 200px;
@@ -474,6 +487,28 @@ main .macommande img{
 }
 .total .hide{
   display: none;
+}
+.total .infoUser{
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
+.total .infoUser div{
+  margin: 0.5rem 0;
+  width: 100%;
+}
+.total .infoUser label{
+  display: inline-block;
+  width: 10rem;
+}
+.total .infoUser input{
+  display: inline-block;
+  width: 20rem;
+}
+.total .infoUser .check{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 /*<<<<<<<<<<<<<page panier*/
 footer .logo{

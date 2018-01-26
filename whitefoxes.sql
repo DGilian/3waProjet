@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Mer 24 Janvier 2018 à 14:20
+-- Généré le :  Ven 26 Janvier 2018 à 19:35
 -- Version du serveur :  5.7.20-0ubuntu0.16.04.1
 -- Version de PHP :  7.0.22-0ubuntu0.16.04.1
 
@@ -60,6 +60,32 @@ CREATE TABLE `commande_line` (
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `newsletters`
+--
+
+CREATE TABLE `newsletters` (
+  `id` int(11) NOT NULL,
+  `mail` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `newsletters`
+--
+
+INSERT INTO `newsletters` (`id`, `mail`) VALUES
+(1, 'denis.gilian@laposte.net'),
+(2, 'test@yahoo.com'),
+(3, 'youpi@test.com'),
+(4, 'modeles@2.com'),
+(5, 'panier@1.com'),
+(8, 'lkhglkhgj@lkj'),
+(9, 'kjfkh@lkjhglh222'),
+(10, 'test@1234'),
+(11, 'TEST@456');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `Tshirt`
 --
 
@@ -77,18 +103,18 @@ CREATE TABLE `Tshirt` (
 --
 
 INSERT INTO `Tshirt` (`id`, `name`, `description`, `quantity_in_stock`, `price`, `image`) VALUES
-(1, 'onespace', 'OneSpace pour l\'aventure !', 40, 75, '1.jpg'),
+(1, 'onespace', 'OneSpace pour l\'aventure !', 40, 70, '1.jpg'),
 (2, 'dragon', 'Le dragon vous tient au chaud!', 2, 75, '2.jpg'),
-(3, 'white', 'simple et cosy', 100, 75, '3.jpg'),
-(4, 'rayman', 'Pour les âmes sportives!', 2, 75, '4.jpg'),
-(5, 'black', 'top', 2, 75, '5.jpg'),
-(6, 'fence', 'top', 2, 75, '6.jpg'),
-(7, 'black marin', 'top', 2, 75, '7.jpg'),
-(8, 'child', 'top', 2, 75, '8.jpg'),
-(9, 'coq', 'top', 2, 75, '9.jpg'),
-(10, 'blue marin', 'top', 2, 75, '10.jpg'),
-(11, 'hypnose', 'top', 2, 75, '11.jpg'),
-(12, 'blue', 'top', 2, 75, '12.jpg');
+(3, 'white', 'simple et cosy', 100, 80, '3.jpg'),
+(4, 'rayman', 'Pour les âmes sportives!', 2, 92, '4.jpg'),
+(5, 'black', 'lorem ipsum', 2, 25, '5.jpg'),
+(6, 'fence', 'top', 2, 42, '6.jpg'),
+(7, 'black marin', 'lorem ipsum', 2, 75, '7.jpg'),
+(8, 'child', 'lorem ipsum', 2, 102, '8.jpg'),
+(9, 'coq', 'lorem ipsum', 2, 75, '9.jpg'),
+(10, 'blue marin', 'lorem ipsum', 2, 75, '10.jpg'),
+(11, 'hypnose', 'lorem ipsum', 2, 75, '11.jpg'),
+(12, 'blue', 'lorem ipsum', 2, 75, '12.jpg');
 
 -- --------------------------------------------------------
 
@@ -101,20 +127,22 @@ CREATE TABLE `users` (
   `FirstName` varchar(40) NOT NULL,
   `LastName` varchar(40) NOT NULL,
   `Email` varchar(80) NOT NULL,
-  `password` varchar(50) NOT NULL,
   `adresse` varchar(120) NOT NULL,
-  `city` varchar(40) NOT NULL,
-  `state` varchar(40) NOT NULL,
-  `phone` char(10) NOT NULL
+  `city` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `users`
 --
 
-INSERT INTO `users` (`id`, `FirstName`, `LastName`, `Email`, `password`, `adresse`, `city`, `state`, `phone`) VALUES
-(1, 'jean', 'louis', 'david@laposte.net', 'troiswa', 'rue du coiffeur', 'cherbourg', 'france', '0606060606'),
-(2, 'paul', 'henry', 'dupont@laposte.net', 'troiswa', 'rue du port', 'cherbourg', 'france', '0607070707');
+INSERT INTO `users` (`id`, `FirstName`, `LastName`, `Email`, `adresse`, `city`) VALUES
+(1, 'jean', 'louis', 'david@laposte.net', 'rue du coiffeur', 'cherbourg'),
+(2, 'paul', 'henry', 'dupont@laposte.net', 'rue du port', 'cherbourg'),
+(3, 'fqdsfq', 'fsqdmlfkj', 'fdqsf@fqsdf', 'fqsdf', 'fdqsf'),
+(4, 'gilian', 'denis', 'test@test', 'rue test', 'test'),
+(5, 'gilian', 'denis', 'test@test', 'rue test', 'test'),
+(6, 'fqdsf', 'fqsddfkj', 'fqdsf@test', 'tqsfdljqsf', 'fqsdfqsfqds'),
+(7, 'hello', 'hello', 'est@test', 'hello', 'hello');
 
 --
 -- Index pour les tables exportées
@@ -134,6 +162,12 @@ ALTER TABLE `commande_line`
   ADD PRIMARY KEY (`id`),
   ADD KEY `Tshirt_Id` (`Tshirt_Id`),
   ADD KEY `Commande_Id` (`Commande_Id`);
+
+--
+-- Index pour la table `newsletters`
+--
+ALTER TABLE `newsletters`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `Tshirt`
@@ -162,6 +196,11 @@ ALTER TABLE `commande`
 ALTER TABLE `commande_line`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT pour la table `newsletters`
+--
+ALTER TABLE `newsletters`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+--
 -- AUTO_INCREMENT pour la table `Tshirt`
 --
 ALTER TABLE `Tshirt`
@@ -170,7 +209,7 @@ ALTER TABLE `Tshirt`
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- Contraintes pour les tables exportées
 --

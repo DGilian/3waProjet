@@ -27,3 +27,10 @@
     </ul>
   </section>
 {% endblock %}
+{% block input %}
+<form action="" placeholder ="votre-email" method="POST">
+  <label for="">newsletter:</label>
+  <input type="email" placeholder="VOTRE-EMAIL" name ="newsletter" required="required">
+  <input type="submit" value = "envoyer">
+</form>
+{% endblock %}

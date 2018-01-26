@@ -36,11 +36,7 @@
     <section class = "client">
       <p>service client</p>
       <p>cookies et mention legales</p>
-      <form action="" placeholder ="votre-email">
-        <label for="">newsletter:</label>
-        <input type="text" placeholder="VOTRE-EMAIL">
-        <input type="submit" value = "ok">
-      </form>
+      {% block input %}{% endblock %}
     </section>
     <div class="logo">
       <a href=""><img src="{{app.request.basePath}}/img/logo_facebook.png" alt="logo facebook"></a>

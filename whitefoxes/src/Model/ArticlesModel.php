@@ -19,15 +19,6 @@ class ArticlesModel{
       			(name, description, quantity_in_stock,price,image)
       			VALUES (?,?,?,?,?')",[$name,$description,$quantity_in_stock,$price,$image]);
   }
-
-  public function addUsers($title,$author,$contents,$category){
-
-    $db = new Database();
-    $post = $db->executeSql("INSERT INTO users
-    			(FirstName, LastName, Email,password,adresse,city,state,phone)
-    			VALUES(?,?,?,?,?,?,?,?)",[$FirstName,$LastName,$Email,$password,$adresse,$city,$state,$phone]);
-  }
-
 }
 /*
 INSERT INTO Tshirt

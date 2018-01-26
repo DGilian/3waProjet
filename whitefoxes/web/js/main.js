@@ -2,16 +2,18 @@
 
 let basket = {};
 let price = {};
+let tQuantity = load("quantity");
+let tPrice = load("price");
 
 
 // mise à jours du panier
 function updateBasket(i,x) {
-  //ajout dans localStorage
+  //ajout des tshirts dans localStorage
   basket["t"+i] = Number($("#a"+i).val());
   price["p"+i] = Number(x);
 
   save("quantity", basket);
-  save("price", price)
+  save("price", price);
 
   //affichage validation check sur page modele
   $("#fa"+i).removeClass("fa fa-cart-arrow-down");
@@ -25,20 +27,18 @@ function updateBasket(i,x) {
   }, 1000);
 }
 
-//sauvegarde des tshirts selectionnés dans localStorage
+//sauvegarde dans localStorage au format JSON
 function save(key, data) {
   let val = JSON.stringify(data);
   window.localStorage.setItem(key, val);
 }
 
-// chargement des tshirts depuis le localStorage
+// chargement depuis localStorage
 function load(key) {
   let value = window.localStorage.getItem(key);
   return JSON.parse(value);
 }
 
-let tQuantity = load("quantity");
-let tPrice = load("price");
 
 // affichage page panier
 function showQuantity(){
@@ -71,7 +71,7 @@ function showTotalPrice(){
   }
 
   if(sum == 0){
-    $('#totalBasket').html("Votre panier est vide");
+    $('#totalBasket').html("Panier vide");
   }
   else{
     $('#totalBasket').html(sum+" €");
@@ -95,11 +95,23 @@ $(document).click(showQuantity);
 // suppression article panier
 function deleteArticle(id){
 
+    console.log("hello");
     $('#t'+id).val(0);
     tPrice["p"+id] = 0;
 
     updateQuantity(id);
 }
+
+//gestion ajax envoi formulaire
+/*
+$("#sendCommand").click(function(){
+     $.ajax({
+     url : 'panier.twig',
+     type : 'POST',
+     data : 'quantity=' + tQuantity,
+     dataType : 'html'
+    })
+});*/
 
 function refresh(){
   showQuantity();
