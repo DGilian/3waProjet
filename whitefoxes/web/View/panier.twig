@@ -11,9 +11,9 @@
           <img src="{{app.request.basePath}}/img/modeles/{{tshirt.image}}" alt="">
           <div>
             <p>T-shirt <span>{{tshirt.name}}</span></p>
-            <form class = "quantity">
+            <form class = "quantity" method ="POST" action="/test">
               <label for="">Quantité</label>
-              <input id="t{{tshirt.id}}" type="number" value="" onclick="updateQuantity({{tshirt.id}})">
+              <input id="t{{tshirt.id}}" type="number" name="quantity" value="" onclick="updateQuantity({{tshirt.id}})">
               <button onclick="deleteArticle({{tshirt.id}}); return false;"><i class="fa fa-trash" aria-hidden="true"></i></button>
             </form>
             <p>{{tshirt.price}}€</p>
@@ -30,9 +30,9 @@
         </article>
         {% endfor %}
         <hr>
-        <form id="sendCommand" class ="infoUser" action="" method="POST">
+        <form id="basketForm" class ="infoUser" action="" method="POST">
           <div>
-            <label for="firstname">Prénom</label>
+            <label for="firstname">Prenom</label>
             <input type="text" name ="firstname" required="required">
           </div>
           <div>
@@ -40,8 +40,8 @@
             <input type="text" name ="lastname" required="required">
           </div>
           <div>
-            <label for="mail">mail</label>
-            <input type="mail" name ="mail" required="required">
+            <label for="email">mail</label>
+            <input type="email" name ="mail" required="required">
           </div>
           <div>
             <label for="adresse">adresse</label>
@@ -56,8 +56,9 @@
             <article>
               <p>Total du panier</p>
               <p id="totalBasket"></p>
+              <input id="sum" class="hide" type="text" name="total" value="">
             </article>
-            <button name="checkBasket">je valide mon panier</button>
+            <button id="sendCommand" name="checkBasket">je valide mon panier</button>
           </div>
           </form>
       </aside>

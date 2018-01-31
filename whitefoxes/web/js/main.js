@@ -75,6 +75,7 @@ function showTotalPrice(){
   }
   else{
     $('#totalBasket').html(sum+" €");
+    $('#sum').val(sum);
   }
 }
 
@@ -101,17 +102,20 @@ function deleteArticle(id){
 
     updateQuantity(id);
 }
-
 //gestion ajax envoi formulaire
-/*
+
 $("#sendCommand").click(function(){
-     $.ajax({
-     url : 'panier.twig',
-     type : 'POST',
-     data : 'quantity=' + tQuantity,
-     dataType : 'html'
-    })
-});*/
+  console.log(tQuantity);
+   //   $.post({
+   //     $("#basketForm").attr("action"),
+   //     tQuantity
+   // })
+   $.ajax({
+      url : '/whitefoxes/web/index.php/panier',
+      type : 'GET',
+      data : 'testajax=' + tQuantity
+   })
+});
 
 function refresh(){
   showQuantity();

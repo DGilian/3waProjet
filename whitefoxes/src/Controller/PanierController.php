@@ -3,46 +3,34 @@ namespace Src\Controller;
 
 use Silex\Application;
 use Src\Model\ArticlesModel;
-use Src\Model\UsersModel;
+use Src\Model\OrderModel;
 use Symfony\Component\HttpFoundation\Request;
 
 class PanierController {
 
   public function show(Application $app) {
 
+    var_dump($_GET['testajax']);
+
     $post = new ArticlesModel();
     $tshirts = $post->listTshirt();
 
-    ?>
-    <script>
-
-    // function load(key) {
-    //   let value = window.localStorage.getItem(key);
-    //   return JSON.parse(value);
-    // }
-    // let local = load("quantity");
-    // console.log(local);
-
-    </script>
-    <?php
-
-    // var_dump($data);
-    //var_dump($tshirts);
     $array = ['showTshirts'=>$tshirts];
     return $app['twig']->render('panier.twig',$array);
   }
 
-  public function addUsers(Application $app, Request $request){
+  public function addOrder(Application $app, Request $request){
 
       $FirstName = $request->get('firstname');
       $LastName = $request->get('lastname');
-      $Email = $request->get('mail');
-      $adresse = $request->get('adresse');
-      $city = $request->get('ville');
+      $Mail= $request->get('mail');
+      $Adress = $request->get('adresse');
+      $City = $request->get('ville');
+      $Total = $request->get('total');
 
-      $add = new UsersModel();
-      $addOne = $add->addUsers($FirstName,$LastName,$Email,$adresse,$city);
+      $add = new OrderModel();
+      $addOne = $add->addOrder($FirstName,$LastName,$Mail,$Adress,$City,$Total);
 
-      return $app['twig']->render('home.twig');
+      return $this->show($app);
   }
 }

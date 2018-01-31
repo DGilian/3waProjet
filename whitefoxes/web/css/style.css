@@ -510,6 +510,9 @@ main .macommande img{
   flex-direction: column;
   justify-content: space-between;
 }
+.total .check .hide{
+  display: none;
+}
 /*<<<<<<<<<<<<<page panier*/
 footer .logo{
   display: flex;
