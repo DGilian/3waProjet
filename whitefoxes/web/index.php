@@ -14,12 +14,12 @@ $app->register($twig, [ 'twig.path' => 'View' ]);
 $app->get('/', 'Src\Controller\HomeController::show');
 $app->post('/', 'Src\Controller\HomeController::addMailNewsletter');
 
-$app->get('/modeles', 'Src\Controller\ModelesController::show');
-$app->post('/modeles', 'Src\Controller\HomeController::addMailNewsletter');
+$app->get('/articles', 'Src\Controller\ArticlesController::show');
+$app->post('/articles', 'Src\Controller\HomeController::addMailNewsletter');
 
-$app->get('/panier', 'Src\Controller\PanierController::show');
-$app->post('/panier', 'Src\Controller\PanierController::addOrder');
+$app->get('/cart', 'Src\Controller\CartController::show');
+$app->post('/cart/update', 'Src\Controller\CartController::update');
 
-$app->post('/test', 'Src\Controller\PanierController::addUsers');
+$app->post('/test', 'Src\Controller\CartController::addUsers');
 
 $app->run();  //lance le code

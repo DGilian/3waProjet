@@ -6,7 +6,7 @@ use Src\Model\ArticlesModel;
 use Src\Model\NewsletterModel;
 use Symfony\Component\HttpFoundation\Request;
 
-class ModelesController {
+class ArticlesController {
 
   public function show(Application $app){
 
@@ -16,7 +16,7 @@ class ModelesController {
     //var_dump($tshirts);
 
     $array = ['showTshirts'=>$tshirts];
-    return $app['twig']->render('modeles.twig',$array);
+    return $app['twig']->render('articles.twig',$array);
   }
 
   public function addMailNewsletter(Application $app, Request $request){

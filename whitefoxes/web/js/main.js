@@ -102,19 +102,27 @@ function deleteArticle(id){
 
     updateQuantity(id);
 }
-//gestion ajax envoi formulaire
 
+
+//gestion ajax envoi formulaire
+let cartContent = tQuantity;
+console.log(cartContent);
 $("#sendCommand").click(function(){
-  console.log(tQuantity);
-   //   $.post({
-   //     $("#basketForm").attr("action"),
-   //     tQuantity
-   // })
-   $.ajax({
-      url : '/whitefoxes/web/index.php/panier',
-      type : 'GET',
-      data : 'testajax=' + tQuantity
-   })
+  $.ajax({
+      // controller : Cart, method update(), registered as POST
+      url: 'cart/update',
+      // convert JSON data into string format
+      data: JSON.stringify(cartContent),
+      method: 'post',
+      dataType: 'json',
+      contentType: 'application/json; charset=utf-8'
+  }).done(function (success) {
+      if (success) {
+          document.location = 'cart';
+      } else {
+          alert('Impossible de mettre à jour votre panier, veuillez réessayer...');
+      }
+  });
 });
 
 function refresh(){
