@@ -3,8 +3,8 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Ven 26 Janvier 2018 à 19:35
--- Version du serveur :  5.7.20-0ubuntu0.16.04.1
+-- Généré le :  Mer 31 Janvier 2018 à 10:28
+-- Version du serveur :  5.7.21-0ubuntu0.16.04.1
 -- Version de PHP :  7.0.22-0ubuntu0.16.04.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -28,20 +28,35 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `commande` (
   `id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `total_amount` int(11) NOT NULL,
-  `tax_rate` tinyint(4) NOT NULL,
-  `tax_amount` double NOT NULL,
-  `creationtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `Firstname` varchar(50) NOT NULL,
+  `Lastname` varchar(50) NOT NULL,
+  `Mail` varchar(100) NOT NULL,
+  `Adress` varchar(150) NOT NULL,
+  `City` varchar(100) NOT NULL,
+  `Total_amount` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `commande`
 --
 
-INSERT INTO `commande` (`id`, `user_id`, `total_amount`, `tax_rate`, `tax_amount`, `creationtime`) VALUES
-(1, 1, 0, 20, 12.5, '2018-01-09 17:15:25'),
-(6, 1, 150, 20, 12.5, '2018-01-09 17:20:47');
+INSERT INTO `commande` (`id`, `Firstname`, `Lastname`, `Mail`, `Adress`, `City`, `Total_amount`) VALUES
+(1, 'gilian', 'denis', 'denis@mail', 'rue 16', 'courbevoie', 1500),
+(2, 'fqsdfqf', 'fsqdff', 'fsdqf', 'fsdqf', 'fsdqfqdsf', 3),
+(3, 'fqsfdf', 'qsfqfsdfqsfdq', 'fqsdfqdf', 'fqsdfq', 'fqdsfqf', 494),
+(4, 'dqsf', 'fqsdf', 'fdsqff@test', 'fdswf', 'fdsf', 494),
+(5, 'fqdsfklj', 'vdsfklj', 'fqdsfdqs@fdksqmjlfjlkqf', 'fsqdmklfjmqlsdkjfqsdmlkjfqsmlfj', 'fqsdlkjkfmqslkdjkfmsqdlfjsqdmlkfjsqd', 75),
+(6, 'fqdsfklj', 'vdsfklj', 'fqdsfdqs@fdksqmjlfjlkqf', 'fsqdmklfjmqlsdkjfqsdmlkjfqsmlfj', 'fqsdlkjkfmqslkdjkfmsqdlfjsqdmlkfjsqd', 75),
+(7, 'fqdsfklj', 'vdsfklj', 'fqdsfdqs@fdksqmjlfjlkqf', 'fsqdmklfjmqlsdkjfqsdmlkjfqsmlfj', 'fqsdlkjkfmqslkdjkfmsqdlfjsqdmlkfjsqd', 75),
+(8, 'fdqsf', 'fqsdf', 'fqssf@xn--qf-hea', 'fqdsf', 'fqsdf', 545),
+(9, 'fdqsf', 'fqsdf', 'fqssf@xn--qf-hea', 'fqdsf', 'fqsdf', 545),
+(10, 'fdqsf', 'fqsdf', 'fqssf@xn--qf-hea', 'fqdsf', 'fqsdf', 545),
+(11, 'fdqs', 'fqdsf', 'fdsqf@stest', 'lkfldqjs@1986', 'fqsdfq', 545),
+(12, 'fqfd', 'fdqfd', 'fdqsf@19868686868', 'fqsfd', 'dfqfq', 545),
+(13, 'fqsf', 'fsdqf', 'fdsqf@fqfd', 'fdqsfq@tsest', 'fqsfqfq', 545),
+(14, 'fqfqsdf', 'fdsqf', 'fsqf@gwstgsq', 'fdsqfqf', 'fdqsfq', 545),
+(15, 'fqsdf', 'fsqdf', 'fdsqf@xn--qf-dja', 'fdsqfd', 'fdsqfd', 545),
+(16, 'fqfqsf', 'dfdsqsdfqf', 'fqsf@fqsf', 'fqsf', 'fqdsfq', 920);
 
 -- --------------------------------------------------------
 
@@ -56,6 +71,14 @@ CREATE TABLE `commande_line` (
   `Commande_Id` int(4) NOT NULL,
   `Price_Each` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `commande_line`
+--
+
+INSERT INTO `commande_line` (`id`, `QuantityOrderer`, `Tshirt_Id`, `Commande_Id`, `Price_Each`) VALUES
+(1, 3, 2, 1, 75),
+(2, 2, 2, 2, 75);
 
 -- --------------------------------------------------------
 
@@ -116,34 +139,6 @@ INSERT INTO `Tshirt` (`id`, `name`, `description`, `quantity_in_stock`, `price`,
 (11, 'hypnose', 'lorem ipsum', 2, 75, '11.jpg'),
 (12, 'blue', 'lorem ipsum', 2, 75, '12.jpg');
 
--- --------------------------------------------------------
-
---
--- Structure de la table `users`
---
-
-CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
-  `FirstName` varchar(40) NOT NULL,
-  `LastName` varchar(40) NOT NULL,
-  `Email` varchar(80) NOT NULL,
-  `adresse` varchar(120) NOT NULL,
-  `city` varchar(40) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Contenu de la table `users`
---
-
-INSERT INTO `users` (`id`, `FirstName`, `LastName`, `Email`, `adresse`, `city`) VALUES
-(1, 'jean', 'louis', 'david@laposte.net', 'rue du coiffeur', 'cherbourg'),
-(2, 'paul', 'henry', 'dupont@laposte.net', 'rue du port', 'cherbourg'),
-(3, 'fqdsfq', 'fsqdmlfkj', 'fdqsf@fqsdf', 'fqsdf', 'fdqsf'),
-(4, 'gilian', 'denis', 'test@test', 'rue test', 'test'),
-(5, 'gilian', 'denis', 'test@test', 'rue test', 'test'),
-(6, 'fqdsf', 'fqsddfkj', 'fqdsf@test', 'tqsfdljqsf', 'fqsdfqsfqds'),
-(7, 'hello', 'hello', 'est@test', 'hello', 'hello');
-
 --
 -- Index pour les tables exportées
 --
@@ -152,8 +147,7 @@ INSERT INTO `users` (`id`, `FirstName`, `LastName`, `Email`, `adresse`, `city`) 
 -- Index pour la table `commande`
 --
 ALTER TABLE `commande`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `user_id` (`user_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `commande_line`
@@ -176,12 +170,6 @@ ALTER TABLE `Tshirt`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
-
---
 -- AUTO_INCREMENT pour les tables exportées
 --
 
@@ -189,12 +177,12 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `commande`
 --
 ALTER TABLE `commande`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT pour la table `commande_line`
 --
 ALTER TABLE `commande_line`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT pour la table `newsletters`
 --
@@ -206,26 +194,15 @@ ALTER TABLE `newsletters`
 ALTER TABLE `Tshirt`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
--- AUTO_INCREMENT pour la table `users`
---
-ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
---
 -- Contraintes pour les tables exportées
 --
-
---
--- Contraintes pour la table `commande`
---
-ALTER TABLE `commande`
-  ADD CONSTRAINT `commande_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `commande_line`
 --
 ALTER TABLE `commande_line`
   ADD CONSTRAINT `commande_line_ibfk_1` FOREIGN KEY (`Tshirt_Id`) REFERENCES `Tshirt` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `commande_line_ibfk_2` FOREIGN KEY (`Commande_Id`) REFERENCES `commande` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `commande_line_ibfk_2` FOREIGN KEY (`Commande_Id`) REFERENCES `commande` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
