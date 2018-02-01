@@ -485,7 +485,7 @@ main .macommande img{
 .macommande .hide{
   display: none;
 }
-.total .hide{
+.total .infoUser .hideTotal{
   display: none;
 }
 .total .infoUser{

@@ -39,29 +39,6 @@ function load(key) {
   return JSON.parse(value);
 }
 
-
-// affichage page panier
-function showQuantity(){
-
-  for (let key in tQuantity) {
-
-    if(tQuantity[key]>0){
-      // affiche la quantité
-      $('#t'+key.slice(1)).val(tQuantity[key]);
-      // affiche les t-shirts selectionnés
-      $('#art'+key.slice(1)).removeClass('hide');
-
-      // affiche les t-shirts dans le recapitulatif de la commande
-      $('#total'+key.slice(1)).removeClass('hide');
-      $('#priceByQuantity'+key.slice(1)).html(tQuantity[key]);
-    }
-    else{
-      $('#art'+key.slice(1)).addClass('hide');
-      $('#total'+key.slice(1)).addClass('hide');
-    }
-  }
-}
-
 // calcul + affichage du prix total du panier
 function showTotalPrice(){
   let sum = 0;
@@ -77,6 +54,32 @@ function showTotalPrice(){
     $('#totalBasket').html(sum+" €");
     $('#sum').val(sum);
   }
+}
+
+// affichage page panier
+function showQuantity(){
+
+  for (let key in tQuantity) {
+
+    if(tQuantity[key]>0){
+      // affiche la quantité
+      $('#t'+key.slice(1)).val(tQuantity[key]);
+
+      // affiche les t-shirts selectionnés
+      $('#art'+key.slice(1)).removeClass('hide');
+
+      // affiche les t-shirts dans le recapitulatif de la commande
+      $('#total'+key.slice(1)).removeClass('hide');
+      $('#priceByQuantity'+key.slice(1)).html(tQuantity[key]);
+      $('#postQuantity'+key.slice(1)).val(tQuantity[key]);
+    }
+    else{
+      $('#art'+key.slice(1)).remove();
+      $('#total'+key.slice(1)).remove();
+
+    }
+  }
+  $('.hide').remove();
 }
 
 // modification de la quantité sur la page panier
@@ -96,34 +99,11 @@ $(document).click(showQuantity);
 // suppression article panier
 function deleteArticle(id){
 
-    console.log("hello");
     $('#t'+id).val(0);
     tPrice["p"+id] = 0;
 
     updateQuantity(id);
 }
-
-
-//gestion ajax envoi formulaire
-let cartContent = tQuantity;
-console.log(cartContent);
-$("#sendCommand").click(function(){
-  $.ajax({
-      // controller : Cart, method update(), registered as POST
-      url: 'cart/update',
-      // convert JSON data into string format
-      data: JSON.stringify(cartContent),
-      method: 'post',
-      dataType: 'json',
-      contentType: 'application/json; charset=utf-8'
-  }).done(function (success) {
-      if (success) {
-          document.location = 'cart';
-      } else {
-          alert('Impossible de mettre à jour votre panier, veuillez réessayer...');
-      }
-  });
-});
 
 function refresh(){
   showQuantity();

@@ -18,8 +18,8 @@ $app->get('/articles', 'Src\Controller\ArticlesController::show');
 $app->post('/articles', 'Src\Controller\HomeController::addMailNewsletter');
 
 $app->get('/cart', 'Src\Controller\CartController::show');
-$app->post('/cart/update', 'Src\Controller\CartController::update');
+$app->post('/cart/validate', 'Src\Controller\CartController::validate');
 
-$app->post('/test', 'Src\Controller\CartController::addUsers');
+//$app->post('/test', 'Src\Controller\CartController::addUsers');
 
 $app->run();  //lance le code
