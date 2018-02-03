@@ -38,7 +38,7 @@ class CartController {
       $orderId = $add->addOrder($FirstName,$LastName,$Mail,$Adress,$City,$Total);
 
       $orderLine = new OrderlineModel();
-
+      echo($orderId);
       $x = 0;
       foreach ($Product as $TshirtId) {
 

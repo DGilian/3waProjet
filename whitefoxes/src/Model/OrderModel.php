@@ -10,7 +10,7 @@ class OrderModel{
     $orderId = $db->executeSql("INSERT INTO commande
           (Firstname, Lastname, Mail,Adress,City,Total_amount)
           VALUES(?,?,?,?,?,?)",[$Firstname,$Lastname,$Mail,$Adress,$City,$Total]);
-
+    
     return $orderId;
   }
 }
