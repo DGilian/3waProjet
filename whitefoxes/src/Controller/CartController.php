@@ -35,7 +35,7 @@ class CartController {
       $Total = $request->get('total');
 
       $add = new OrderModel();
-      $addOne = $add->addOrder($FirstName,$LastName,$Mail,$Adress,$City,$Total);
+      $orderId = $add->addOrder($FirstName,$LastName,$Mail,$Adress,$City,$Total);
 
       $orderLine = new OrderlineModel();
 
@@ -43,7 +43,7 @@ class CartController {
       foreach ($Product as $TshirtId) {
 
          $QuantityOrderer = $Quantity[$x];
-         $addOrderLine = $orderLine->addOrderline($QuantityOrderer,$TshirtId);
+         $addOrderLine = $orderLine->addOrderline($QuantityOrderer,$TshirtId,$orderId);
          $x++;
       }
 

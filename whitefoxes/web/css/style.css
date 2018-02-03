@@ -463,6 +463,7 @@ aside h2{
 aside article{
   display: flex;
   justify-content: space-between;
+  width: 100%;
 }
 
 aside form button{
