@@ -11,8 +11,8 @@ class CartController {
 
   public function show(Application $app) {
 
-    $post = new ArticlesModel();
-    $tshirts = $post->listTshirt();
+    $articles = new ArticlesModel();
+    $tshirts = $articles->listTshirt();
 
     $array = ['showTshirts'=>$tshirts];
     return $app['twig']->render('cart.twig',$array);
@@ -20,25 +20,21 @@ class CartController {
 
   public function validate(Application $app, Request $request){
 
-      //id
       $Product = $request->get('product');
-      var_dump($Product);
-      //quantity
       $Quantity = $request->get('quantity');
-      var_dump($Quantity);
 
       $FirstName = $request->get('firstname');
       $LastName = $request->get('lastname');
       $Mail= $request->get('mail');
-      $Adress = $request->get('adresse');
-      $City = $request->get('ville');
+      $Adress = $request->get('adress');
+      $City = $request->get('city');
       $Total = $request->get('total');
 
       $add = new OrderModel();
       $orderId = $add->addOrder($FirstName,$LastName,$Mail,$Adress,$City,$Total);
 
       $orderLine = new OrderlineModel();
-      echo($orderId);
+
       $x = 0;
       foreach ($Product as $TshirtId) {
 

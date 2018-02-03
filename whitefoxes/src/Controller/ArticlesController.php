@@ -10,10 +10,8 @@ class ArticlesController {
 
   public function show(Application $app){
 
-    $post = new ArticlesModel();
-    $tshirts = $post->listTshirt();
-
-    //var_dump($tshirts);
+    $articles = new ArticlesModel();
+    $tshirts = $articles->listTshirt();
 
     $array = ['showTshirts'=>$tshirts];
     return $app['twig']->render('articles.twig',$array);

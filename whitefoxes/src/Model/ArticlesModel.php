@@ -20,8 +20,3 @@ class ArticlesModel{
       			VALUES (?,?,?,?,?')",[$name,$description,$quantity_in_stock,$price,$image]);
   }
 }
-/*
-INSERT INTO Tshirt
-			(name, description, quantity_in_stock,price,image)
-			VALUES ('dragon','top','2','75','2.jpg')
-*/

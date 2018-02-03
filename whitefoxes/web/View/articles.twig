@@ -14,7 +14,7 @@
         <div class ="commande">
           <p>{{tshirt.price}} €</p>
           <form action="">
-            <select id="a{{tshirt.id}}" name ="produit" data-index ="{{tshirt.id}}">
+            <select id="product{{tshirt.id}}" name ="produit" data-index ="{{tshirt.id}}">
             {% for i in 0..10 %}
                 <option value={{ i }}>{{ i }}</option>
             {% endfor %}

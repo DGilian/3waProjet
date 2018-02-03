@@ -1,18 +1,17 @@
 'use strict';
 
-let basket = {};
+let quantity = {};
 let price = {};
-let tQuantity = load("quantity");
-let tPrice = load("price");
+let allQuantity = load("quantity");
+let allPrice = load("price");
 
 
-// mise à jours du panier
 function updateBasket(i,x) {
   //ajout des tshirts dans localStorage
-  basket["t"+i] = Number($("#a"+i).val());
+  quantity["t"+i] = Number($("#product"+i).val());
   price["p"+i] = Number(x);
 
-  save("quantity", basket);
+  save("quantity", quantity);
   save("price", price);
 
   //affichage validation check sur page modele
@@ -43,8 +42,8 @@ function load(key) {
 function showTotalPrice(){
   let sum = 0;
 
-  for (var key in tPrice) {
-    sum += tQuantity["t"+key.slice(1)]*tPrice["p"+key.slice(1)];
+  for (var key in allPrice) {
+    sum += allQuantity["t"+key.slice(1)]*allPrice["p"+key.slice(1)];
   }
 
   if(sum == 0){
@@ -59,19 +58,19 @@ function showTotalPrice(){
 // affichage page panier
 function showQuantity(){
 
-  for (let key in tQuantity) {
+  for (let key in allQuantity) {
 
-    if(tQuantity[key]>0){
+    if(allQuantity[key]>0){
       // affiche la quantité
-      $('#t'+key.slice(1)).val(tQuantity[key]);
+      $('#t'+key.slice(1)).val(allQuantity[key]);
 
       // affiche les t-shirts selectionnés
       $('#art'+key.slice(1)).removeClass('hide');
 
       // affiche les t-shirts dans le recapitulatif de la commande
       $('#total'+key.slice(1)).removeClass('hide');
-      $('#priceByQuantity'+key.slice(1)).html(tQuantity[key]);
-      $('#postQuantity'+key.slice(1)).val(tQuantity[key]);
+      $('#priceByQuantity'+key.slice(1)).html(allQuantity[key]);
+      $('#postQuantity'+key.slice(1)).val(allQuantity[key]);
     }
     else{
       $('#art'+key.slice(1)).remove();
@@ -84,11 +83,11 @@ function showQuantity(){
 
 // modification de la quantité sur la page panier
 function updateQuantity(id){
-  tQuantity["t"+id] = Number($('#t'+id).val());
-  if(tQuantity["t"+id] == 0 && tPrice["p"+id] != 0 || tQuantity["t"+id] < 0){
-    tQuantity["t"+id] = 1;
+  allQuantity["t"+id] = Number($('#t'+id).val());
+  if(allQuantity["t"+id] == 0 && allPrice["p"+id] != 0 || allQuantity["t"+id] < 0){
+    allQuantity["t"+id] = 1;
   }
-  save("quantity", tQuantity);
+  save("quantity", allQuantity);
 
   refresh();
 }
@@ -100,7 +99,7 @@ $(document).click(showQuantity);
 function deleteArticle(id){
 
     $('#t'+id).val(0);
-    tPrice["p"+id] = 0;
+    allPrice["p"+id] = 0;
 
     updateQuantity(id);
 }

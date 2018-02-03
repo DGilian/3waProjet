@@ -6,9 +6,7 @@ class Database
 {
 	private $pdo;
 
-
-	public function __construct()
-	{
+	public function __construct(){
 
 		$options = [
 			PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
@@ -16,32 +14,28 @@ class Database
 		];
 
 		$this->pdo = new PDO("mysql:host=localhost;dbname=whitefoxes","hack","helloworld",$options);
-
 		$this->pdo->exec('SET NAMES UTF8');
 	}
 
-	public function executeSql($sql, array $values = array())
-	{
-		$query = $this->pdo->prepare($sql);
+	public function executeSql($sql, array $values = array()){
 
+		$query = $this->pdo->prepare($sql);
 		$query->execute($values);
 
 		return $this->pdo->lastInsertId();
 	}
 
-    public function query($sql, array $criteria = array())
-    {
-        $query = $this->pdo->prepare($sql);
+    public function query($sql, array $criteria = array()){
 
+			  $query = $this->pdo->prepare($sql);
         $query->execute($criteria);
 
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function queryOne($sql, array $criteria = array())
-    {
-        $query = $this->pdo->prepare($sql);
+    public function queryOne($sql, array $criteria = array()){
 
+			  $query = $this->pdo->prepare($sql);
         $query->execute($criteria);
 
         return $query->fetch(PDO::FETCH_ASSOC);
