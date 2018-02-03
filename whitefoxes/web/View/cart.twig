@@ -8,13 +8,13 @@
 
         {% for tshirt in showTshirts %}
         <article id="art{{tshirt.id}}"class="hide">
-          <img src="{{app.request.basePath}}/img/modeles/{{tshirt.image}}" alt=""/>
+          <img src="{{app.request.basePath}}/img/modeles/{{tshirt.image}}" alt="">
           <div>
             <p>T-shirt <span>{{tshirt.name}}</span></p>
-            <form class = "quantity" method ="POST" action="/test">
+            <form class = "quantity" method ="POST" action="">
               <label for="">Quantité</label>
-              <input id="t{{tshirt.id}}" type="number" name="quantity" value="" onclick="updateQuantity({{tshirt.id}})"/>
-              <button onclick="deleteArticle({{tshirt.id}}); return false;"><i class="fa fa-trash" aria-hidden="true"></i></button>
+              <input id="t{{tshirt.id}}" type="number" name="quantity" value="" onclick="updateQuantity({{tshirt.id}})">
+              <button id="switchActif" onclick="deleteArticle({{tshirt.id}}); return false;"><i class="fa fa-trash" aria-hidden="true" type="button" ></i></button>
             </form>
             <p>{{tshirt.price}}€</p>
           </div>
@@ -65,5 +65,4 @@
           </form>
       </aside>
     </div>
-    <script src="{{app.request.basePath}}/js/cart.js"></script>
 {% endblock %}

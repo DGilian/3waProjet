@@ -95,6 +95,7 @@ function updateQuantity(id){
 //evite de prendre en compte la modification de l'input au clavier
 $(document).click(showQuantity);
 
+
 // suppression article panier
 function deleteArticle(id){
 
