@@ -20,4 +20,5 @@ Guide installation
 
 * importer le fichier de base de données (whitefoxes.sql)
 
-* modification login, mot de passe accès BDD; (Database.php)
+* modification login, mot de passe accès BDD; (src/Classes/Database.php)
+`$this->pdo = new PDO("mysql:host=localhost;dbname=whitefoxes","hack","helloworld",$options);`
