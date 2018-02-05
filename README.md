@@ -1,6 +1,6 @@
 # 3waProjet
 
-Mon projet 3WA : vente en ligne de T-shirt
+Mon projet : vente en ligne de T-shirt
 
 Architecture
 --
