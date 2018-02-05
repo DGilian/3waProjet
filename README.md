@@ -16,7 +16,7 @@ Architecture
 Guide installation 
 --
 
-* composer install  (composer.json présent dans le dossier)
+* 'composer install'  (composer.json présent dans le dossier)
 
 * importer le fichier de base de données (whitefoxes.sql)
 
