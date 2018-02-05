@@ -19,11 +19,11 @@ class ArticlesController {
 
   public function addMailNewsletter(Application $app, Request $request){
 
-      $mail = $request->get('newsletter');
+    $mail = $request->get('newsletter');
 
-      $add = new NewsletterModel();
-      $addOne = $add->addNewsletter($mail);
+    $add = new NewsletterModel();
+    $addOne = $add->addNewsletter($mail);
 
-      return $app['twig']->render('home.twig');
+    return $app['twig']->render('home.twig');
   }
 }

@@ -11,11 +11,11 @@ class CartController {
 
   public function show(Application $app) {
 
-    $articles = new ArticlesModel();
-    $tshirts = $articles->listTshirt();
+      $articles = new ArticlesModel();
+      $tshirts = $articles->listTshirt();
 
-    $array = ['showTshirts'=>$tshirts];
-    return $app['twig']->render('cart.twig',$array);
+      $array = ['showTshirts'=>$tshirts];
+      return $app['twig']->render('cart.twig',$array);
   }
 
   public function validate(Application $app, Request $request){
