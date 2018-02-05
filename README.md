@@ -1,15 +1,14 @@
 # 3waProjet
 
-Voici mon projet 3WA 
-==
-
-vente en ligne de T-shirt
+Mon projet 3WA : vente en ligne de T-shirt
 
 Architecture
 --
 
 *Base de donnée :* SQL
+
 *Backend :* php , silex
+ 
 *Front:* twig , javascript, css , html
 
 
