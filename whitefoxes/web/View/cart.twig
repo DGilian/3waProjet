@@ -11,11 +11,11 @@
           <img src="{{app.request.basePath}}/img/modeles/{{tshirt.image}}" alt="">
           <div>
             <p>T-shirt <span>{{tshirt.name}}</span></p>
-            <form id="articleForm" class = "quantity" method ="POST" action="">
+            <div id="articleForm" class = "quantity" method ="POST" action="">
               <label for="">Quantité</label>
               <input id="t{{tshirt.id}}" type="number" name="quantity" value="" onclick="updateQuantity({{tshirt.id}})">
-              <button id="switchActif" onclick="deleteArticle({{tshirt.id}}); return false;"><i class="fa fa-trash" aria-hidden="true" type="button" disabled></i></button>
-            </form>
+              <button onclick="deleteArticle({{tshirt.id}}); return false;"><i class="fa fa-trash" aria-hidden="true" type="button" disabled></i></button>
+            </div>
             <p>{{tshirt.price}}€</p>
           </div>
         </article>
